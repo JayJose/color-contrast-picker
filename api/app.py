@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from routers import root
+from routers import root, picks
 from config import settings
 
 
@@ -21,6 +21,8 @@ app = FastAPI(
 
 prefix = settings.API_PREFIX
 app.include_router(root.router, prefix=prefix)
+app.include_router(picks.router, prefix=prefix)
+
 
 origins = ["*"]
 
