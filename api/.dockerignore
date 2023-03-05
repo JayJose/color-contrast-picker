@@ -1,0 +1,9 @@
+local.settings.json
+.vscode
+
+**/.git
+**/.DS_Store
+**/node_modules
+
+.gitignore
+**/.env
