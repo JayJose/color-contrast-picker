@@ -1,0 +1,149 @@
+{
+  "message": "WebAIM API request successful.",
+  "results": {
+    "requestId": "1678124050",
+    "requestTs": "2023-03-06 17:34:10",
+    "colorCombos": [
+      {
+        "colorOne": "#FFFFFF",
+        "colorTwo": "#000000",
+        "results": {
+          "message": "WebAIM API request successful.",
+          "results": {
+            "ratio": "21",
+            "AA": "pass",
+            "AALarge": "pass",
+            "AAA": "pass",
+            "AAALarge": "pass"
+          }
+        }
+      },
+      {
+        "colorOne": "#FFFFFF",
+        "colorTwo": "#0000FF",
+        "results": {
+          "message": "WebAIM API request successful.",
+          "results": {
+            "ratio": "8.59",
+            "AA": "pass",
+            "AALarge": "pass",
+            "AAA": "pass",
+            "AAALarge": "pass"
+          }
+        }
+      },
+      {
+        "colorOne": "#FFFFFF",
+        "colorTwo": "#FF0000",
+        "results": {
+          "message": "WebAIM API request successful.",
+          "results": {
+            "ratio": "3.99",
+            "AA": "fail",
+            "AALarge": "pass",
+            "AAA": "fail",
+            "AAALarge": "fail"
+          }
+        }
+      },
+      {
+        "colorOne": "#FFFFFF",
+        "colorTwo": "#00FF00",
+        "results": {
+          "message": "WebAIM API request successful.",
+          "results": {
+            "ratio": "1.37",
+            "AA": "fail",
+            "AALarge": "fail",
+            "AAA": "fail",
+            "AAALarge": "fail"
+          }
+        }
+      },
+      {
+        "colorOne": "#000000",
+        "colorTwo": "#0000FF",
+        "results": {
+          "message": "WebAIM API request successful.",
+          "results": {
+            "ratio": "2.44",
+            "AA": "fail",
+            "AALarge": "fail",
+            "AAA": "fail",
+            "AAALarge": "fail"
+          }
+        }
+      },
+      {
+        "colorOne": "#000000",
+        "colorTwo": "#FF0000",
+        "results": {
+          "message": "WebAIM API request successful.",
+          "results": {
+            "ratio": "5.25",
+            "AA": "pass",
+            "AALarge": "pass",
+            "AAA": "fail",
+            "AAALarge": "pass"
+          }
+        }
+      },
+      {
+        "colorOne": "#000000",
+        "colorTwo": "#00FF00",
+        "results": {
+          "message": "WebAIM API request successful.",
+          "results": {
+            "ratio": "15.3",
+            "AA": "pass",
+            "AALarge": "pass",
+            "AAA": "pass",
+            "AAALarge": "pass"
+          }
+        }
+      },
+      {
+        "colorOne": "#0000FF",
+        "colorTwo": "#FF0000",
+        "results": {
+          "message": "WebAIM API request successful.",
+          "results": {
+            "ratio": "2.14",
+            "AA": "fail",
+            "AALarge": "fail",
+            "AAA": "fail",
+            "AAALarge": "fail"
+          }
+        }
+      },
+      {
+        "colorOne": "#0000FF",
+        "colorTwo": "#00FF00",
+        "results": {
+          "message": "WebAIM API request successful.",
+          "results": {
+            "ratio": "6.26",
+            "AA": "pass",
+            "AALarge": "pass",
+            "AAA": "fail",
+            "AAALarge": "pass"
+          }
+        }
+      },
+      {
+        "colorOne": "#FF0000",
+        "colorTwo": "#00FF00",
+        "results": {
+          "message": "WebAIM API request successful.",
+          "results": {
+            "ratio": "2.91",
+            "AA": "fail",
+            "AALarge": "fail",
+            "AAA": "fail",
+            "AAALarge": "fail"
+          }
+        }
+      }
+    ]
+  }
+}

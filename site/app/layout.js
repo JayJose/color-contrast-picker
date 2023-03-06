@@ -1,14 +1,18 @@
-import "./globals.css";
+// app/layout.tsx
+"use client";
 
-export const metadata = {
-  title: "Contrast Color Picker",
-  description: "A color picking app",
-};
+import { CacheProvider } from "@chakra-ui/next-js";
+import { ChakraProvider } from "@chakra-ui/react";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <head />
+      <body>
+        <CacheProvider>
+          <ChakraProvider>{children}</ChakraProvider>
+        </CacheProvider>
+      </body>
     </html>
   );
 }
