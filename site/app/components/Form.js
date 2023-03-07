@@ -1,18 +1,20 @@
 import { useRef, useState } from "react";
-import { Form, Stack, Row, Col, Button } from "react-bootstrap";
+import { Button, Input, InputGroup, Stack } from "@chakra-ui/react";
+
 import getData from "../lib/getData";
 import postData from "../lib/postData";
 
 export default function MyForm({ setData }) {
   const colorsRef = useRef();
 
-  const url = "http://localhost:8000/api/v0/users/";
+  const url = "http://localhost:8000/api/v0/picks/combos";
 
-  async function handleSubmit(e) {
+  async function handleClick(e) {
     e.preventDefault();
-    return null;
+    let val = colorsRef.current.value;
+    await postData(url, JSON.parse(val), setData);
   }
-  //     e.preventDefault();
+
   //     await postData(url,
   //       colorsRef.current.value,
   //       setData
@@ -26,27 +28,13 @@ export default function MyForm({ setData }) {
   //   }
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Stack gap={4}>
-        <Row>
-          <Col>
-            <Form.Group controlId="formBasicColors">
-              <Form.Label>Colors</Form.Label>
-              <Form.Control
-                required
-                type="text"
-                ref={colorsRef}
-                placeholder="Enter some colors."
-              />
-            </Form.Group>
-          </Col>
-        </Row>
-        <Stack direction="horizontal" gap={2} className={"justify-content-end"}>
-          <Button type="submit" variant="primary">
-            Search
-          </Button>
-        </Stack>
-      </Stack>
-    </Form>
+    <Stack spacing={4}>
+      <InputGroup>
+        <Input type="tel" placeholder="Colors" ref={colorsRef} />
+        <Button colorScheme={"gray"} onClick={handleClick}>
+          Search
+        </Button>
+      </InputGroup>
+    </Stack>
   );
 }
