@@ -6,9 +6,13 @@ import { Inter } from "next/font/google";
 import styles from "./page.module.css";
 const inter = Inter({ subsets: ["latin"] });
 
+// chakra components
+import { Container, VStack } from "@chakra-ui/react";
+
 // custom components
 import MyForm from "./components/Form";
 import MyTable from "./components/Table";
+import MyHeader from "./components/Header";
 
 // helper functions
 import postData from "./lib/postData";
@@ -27,8 +31,21 @@ export default function Home() {
 
   return (
     <>
-      <MyForm setData={setData} />
-      <MyTable data={data} />
+      <MyHeader></MyHeader>
+      <Container maxW="container.xl" p={{ base: 0, md: 3 }}>
+        <VStack
+          h="95vh"
+          w="100%"
+          p={0}
+          spacing={2}
+          align="stretch"
+          borderRadius={"10px"}
+          overflowY={"auto"}
+        >
+          <MyForm setData={setData} />
+          <MyTable data={data} />
+        </VStack>
+      </Container>
     </>
   );
 }
