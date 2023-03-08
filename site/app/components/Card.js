@@ -13,6 +13,7 @@ import {
   Spacer,
   Text,
   HStack,
+  Switch,
 } from "@chakra-ui/react";
 
 import {
@@ -22,6 +23,7 @@ import {
   QuestionIcon,
   WarningIcon,
 } from "@chakra-ui/icons";
+import { useState } from "react";
 
 function getIcon(result) {
   switch (result) {
@@ -41,12 +43,13 @@ export default function MyCard({
   aaResult,
   aaaResult,
 }) {
+  const [colors, setColors] = useState([foregroundColor, backgroundColor]);
   return (
     <Card minW="sm">
-      <CardBody color={foregroundColor} bg={backgroundColor}>
+      <CardBody color={colors[0]} bg={colors[1]}>
         <Stack mt="1" spacing="3">
           <Heading size="md">
-            {foregroundColor} on top of {backgroundColor}
+            {colors[0]} on {colors[1]}
           </Heading>
           <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -56,8 +59,6 @@ export default function MyCard({
           </Text>
         </Stack>
       </CardBody>
-      <Divider color={foregroundColor} />
-
       <CardFooter color="white" alignItems={"center"}>
         <HStack mr={4}>
           <Text color="black">AA: </Text>
@@ -67,6 +68,12 @@ export default function MyCard({
           <Text color="black">AAA: </Text>
           {getIcon(aaaResult)}
         </HStack>
+        <Spacer />
+        <Switch
+          onChange={() => {
+            setColors(colors.slice().reverse());
+          }}
+        />
       </CardFooter>
     </Card>
   );

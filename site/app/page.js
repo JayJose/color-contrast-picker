@@ -41,7 +41,6 @@ export default function Home() {
           spacing={2}
           align="stretch"
           borderRadius={"10px"}
-          overflowY={"auto"}
         >
           <MyForm setData={setData} />
           {/* <MyTable data={data} /> */}
