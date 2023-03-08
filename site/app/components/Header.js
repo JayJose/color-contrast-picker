@@ -48,8 +48,8 @@ export default function MyHeader() {
                 <MenuList
                   fontSize={"14px"}
                   fontWeight={200}
-                  background="white"
-                  textColor={"black"}
+                  background="black"
+                  textColor={"white"}
                 >
                   <MenuItem>
                     <Link href="https://github.com/JayJose/contrast-color-picker">

@@ -7,12 +7,13 @@ import styles from "./page.module.css";
 const inter = Inter({ subsets: ["latin"] });
 
 // chakra components
-import { Container, VStack } from "@chakra-ui/react";
+import { Container, SimpleGrid, VStack } from "@chakra-ui/react";
 
 // custom components
 import MyForm from "./components/Form";
 import MyTable from "./components/Table";
 import MyHeader from "./components/Header";
+import MyCard from "./components/Card";
 
 // helper functions
 import postData from "./lib/postData";
@@ -36,14 +37,25 @@ export default function Home() {
         <VStack
           h="95vh"
           w="100%"
-          p={0}
+          p={2}
           spacing={2}
           align="stretch"
           borderRadius={"10px"}
           overflowY={"auto"}
         >
           <MyForm setData={setData} />
-          <MyTable data={data} />
+          {/* <MyTable data={data} /> */}
+          <SimpleGrid columns={2} spacingX="50px" spacingY="50px">
+            {data.results.colorCombos.map((e, i) => (
+              <MyCard
+                key={i}
+                foregroundColor={e.colorOne}
+                backgroundColor={e.colorTwo}
+                aaResult={e.results.results.AA}
+                aaaResult={e.results.results.AAA}
+              />
+            ))}
+          </SimpleGrid>
         </VStack>
       </Container>
     </>
