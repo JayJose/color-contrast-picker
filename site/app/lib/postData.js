@@ -12,6 +12,7 @@ export default async function postData(url, data, setData) {
     let response = await request.json();
     if (request.status === 200) {
       setData(response);
+      console.log(response);
     } else {
       throw new Error("Something went wrong");
     }

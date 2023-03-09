@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Button, Input, InputGroup, Stack } from "@chakra-ui/react";
+import { Button, HStack, Input, InputGroup, Stack } from "@chakra-ui/react";
 
 import getData from "../lib/getData";
 import postData from "../lib/postData";
@@ -28,13 +28,11 @@ export default function MyForm({ setData }) {
   //   }
 
   return (
-    <Stack spacing={4}>
-      <InputGroup>
-        <Input type="tel" placeholder="Colors" ref={colorsRef} />
-        <Button colorScheme={"gray"} onClick={handleClick}>
-          Search
-        </Button>
-      </InputGroup>
-    </Stack>
+    <HStack>
+      <Input type="text" placeholder="Enter colors here" ref={colorsRef} />
+      <Button bg={"black"} onClick={handleClick} color="white">
+        Go
+      </Button>
+    </HStack>
   );
 }

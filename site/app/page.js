@@ -7,7 +7,7 @@ import styles from "./page.module.css";
 const inter = Inter({ subsets: ["latin"] });
 
 // chakra components
-import { Container, SimpleGrid, VStack } from "@chakra-ui/react";
+import { Container, SimpleGrid, Text, VStack } from "@chakra-ui/react";
 
 // custom components
 import MyForm from "./components/Form";
@@ -21,6 +21,8 @@ import postData from "./lib/postData";
 // sample data
 import sampleData from "./example.json";
 
+// sample array ["#0000ff", "#4b0082", "#ee82ee"]
+
 export default function Home() {
   const [data, setData] = useState(sampleData);
 
@@ -29,6 +31,8 @@ export default function Home() {
   //   console.log("running useEffect");
   //   postData(url, ["#FFFFFF", "#000000", "#FFF000"], setData);
   // }, []);
+
+  const [gridData, setGridData] = useState(data.results.colorCombos);
 
   return (
     <>
@@ -43,7 +47,6 @@ export default function Home() {
           borderRadius={"10px"}
         >
           <MyForm setData={setData} />
-          {/* <MyTable data={data} /> */}
           <SimpleGrid columns={2} spacingX="50px" spacingY="50px">
             {data.results.colorCombos.map((e, i) => (
               <MyCard
@@ -55,6 +58,7 @@ export default function Home() {
               />
             ))}
           </SimpleGrid>
+          <Text>{JSON.stringify(gridData)}</Text>
         </VStack>
       </Container>
     </>
