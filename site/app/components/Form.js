@@ -29,7 +29,12 @@ export default function MyForm({ setData }) {
 
   return (
     <HStack>
-      <Input type="text" placeholder="Enter colors here" ref={colorsRef} />
+      <Input
+        bg={"white"}
+        type="text"
+        placeholder="Enter colors here"
+        ref={colorsRef}
+      />
       <Button bg={"black"} onClick={handleClick} color="white">
         Go
       </Button>
