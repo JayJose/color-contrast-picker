@@ -1,3 +1,6 @@
+import { useState } from "react";
+
+// components
 import {
   Button,
   ButtonGroup,
@@ -16,6 +19,7 @@ import {
   Switch,
 } from "@chakra-ui/react";
 
+// icons
 import {
   CheckIcon,
   CheckCircleIcon,
@@ -23,13 +27,14 @@ import {
   QuestionIcon,
   WarningIcon,
 } from "@chakra-ui/icons";
-import { useState } from "react";
+
+// custom components
+import MyTag from "./Tag";
 
 function getIcon(result) {
   switch (result) {
     case "pass":
       return <CheckCircleIcon color="green" />;
-      break;
     case "fail":
       return <WarningIcon color="red" />;
     default:
@@ -42,15 +47,22 @@ export default function MyCard({
   backgroundColor,
   aaResult,
   aaaResult,
+  contrastRatio,
 }) {
   const [colors, setColors] = useState([foregroundColor, backgroundColor]);
   return (
     <Card minW="sm">
+      <CardHeader>
+        <HStack>
+          <Text color="black">Colors: </Text>
+          {colors.map((c) => (
+            <MyTag label={c} color={c} />
+          ))}
+        </HStack>
+      </CardHeader>
       <CardBody color={colors[0]} bg={colors[1]}>
         <Stack mt="1" spacing="3">
-          <Heading size="md">
-            {colors[0]} on {colors[1]}
-          </Heading>
+          <Heading size="md">Lorem Ipsum</Heading>
           <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -64,9 +76,12 @@ export default function MyCard({
           <Text color="black">AA: </Text>
           {getIcon(aaResult)}
         </HStack>
-        <HStack>
+        <HStack mr={4}>
           <Text color="black">AAA: </Text>
           {getIcon(aaaResult)}
+        </HStack>
+        <HStack>
+          <Text color="black">Ratio: {contrastRatio}</Text>
         </HStack>
         <Spacer />
         <HStack mr={4}>

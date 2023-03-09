@@ -83,6 +83,7 @@ export default function Home() {
                 backgroundColor={e.colorTwo}
                 aaResult={e.results.results.AA}
                 aaaResult={e.results.results.AAA}
+                contrastRatio={e.results.results.ratio}
               />
             ))}
           </SimpleGrid>
