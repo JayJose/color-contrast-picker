@@ -7,7 +7,15 @@ import styles from "./page.module.css";
 const inter = Inter({ subsets: ["latin"] });
 
 // chakra components
-import { Container, SimpleGrid, Text, VStack } from "@chakra-ui/react";
+import {
+  Container,
+  Divider,
+  HStack,
+  Heading,
+  SimpleGrid,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 
 // custom components
 import MyForm from "./components/Form";
@@ -20,6 +28,7 @@ import postData from "./lib/postData";
 
 // sample data
 import sampleData from "./example.json";
+import MyTag from "./components/Tag";
 
 // sample array ["#0000ff", "#4b0082", "#ee82ee"]
 
@@ -34,6 +43,16 @@ export default function Home() {
 
   const [gridData, setGridData] = useState(data.results.colorCombos);
 
+  const colors = [
+    "#ff0000",
+    "#ffa500",
+    "#ffff00",
+    "#008000",
+    "#0000ff",
+    "#4b0082",
+    "#ee82ee",
+  ];
+
   return (
     <>
       <MyHeader></MyHeader>
@@ -47,6 +66,15 @@ export default function Home() {
           borderRadius={"10px"}
         >
           <MyForm setData={setData} />
+          <HStack>
+            {colors.map((c) => (
+              <MyTag label={c} color={c} />
+            ))}
+          </HStack>
+          <Divider></Divider>
+          <Heading fontWeight={300} size="md">
+            Accessibility Results
+          </Heading>
           <SimpleGrid columns={2} spacingX="50px" spacingY="50px">
             {data.results.colorCombos.map((e, i) => (
               <MyCard
