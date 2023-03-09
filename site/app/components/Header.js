@@ -15,6 +15,7 @@ import { HamburgerIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import { Home } from "grommet-icons";
 
 export default function MyHeader() {
+  const headerConfig = { primaryColor: "black", secColor: "white" };
   return (
     <>
       <Flex
@@ -24,11 +25,11 @@ export default function MyHeader() {
         position="sticky"
         zIndex={1}
         p={2}
-        background={"white"}
+        background={headerConfig.secColor}
         borderBottom={"2px solid black"}
       >
-        <Box p="0" color="black">
-          <Heading size="lg" fontWeight={300}>
+        <Box p="0">
+          <Heading size="lg" fontWeight={300} color={headerConfig.primaryColor}>
             Contrast Color Picker
           </Heading>
         </Box>
@@ -39,8 +40,10 @@ export default function MyHeader() {
                 <MenuButton
                   as={IconButton}
                   aria-label="Options"
-                  icon={<HamburgerIcon w={6} h={6} color="white" />}
-                  background={"black"}
+                  icon={
+                    <HamburgerIcon w={6} h={6} color={headerConfig.secColor} />
+                  }
+                  background={headerConfig.primaryColor}
                   maxH={7}
                 >
                   {isOpen ? "Close" : "Open"}
@@ -48,8 +51,8 @@ export default function MyHeader() {
                 <MenuList
                   fontSize={"14px"}
                   fontWeight={200}
-                  background="white"
-                  textColor={"black"}
+                  background={headerConfig.secColor}
+                  textColor={headerConfig.primaryColor}
                 >
                   <MenuItem>
                     <Link href="https://github.com/JayJose/contrast-color-picker">

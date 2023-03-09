@@ -56,11 +56,11 @@ export default function Home() {
   return (
     <>
       <MyHeader></MyHeader>
-      <Container maxW="container.xl" p={{ base: 0, md: 3 }}>
+      <Container bg={"#f9f9f9"} maxW="container.xl" p={{ base: 0, md: 3 }}>
         <VStack
           h="95vh"
           w="100%"
-          p={2}
+          p={4}
           spacing={2}
           align="stretch"
           borderRadius={"10px"}
