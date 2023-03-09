@@ -69,11 +69,14 @@ export default function MyCard({
           {getIcon(aaaResult)}
         </HStack>
         <Spacer />
-        <Switch
-          onChange={() => {
-            setColors(colors.slice().reverse());
-          }}
-        />
+        <HStack mr={4}>
+          <Text color="black">Toggle colors</Text>
+          <Switch
+            onChange={() => {
+              setColors(colors.slice().reverse());
+            }}
+          />
+        </HStack>
       </CardFooter>
     </Card>
   );

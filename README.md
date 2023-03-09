@@ -2,6 +2,10 @@
 
 A web-based tool to assess the accessibility of contrasting colors
 
+![image info](/docs/img/sample.png)
+
+*Above: Multiple color combinations*
+
 ## Getting started
 
 1. Build and start the FastAPI container `docker compose up api --build`
