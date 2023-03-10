@@ -55,8 +55,8 @@ export default function MyCard({
       <CardHeader>
         <HStack>
           <Text color="black">Colors: </Text>
-          {colors.map((c) => (
-            <MyTag label={c} color={c} />
+          {colors.map((c, i) => (
+            <MyTag key={i} label={c} color={c} />
           ))}
         </HStack>
       </CardHeader>
