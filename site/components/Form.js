@@ -1,31 +1,27 @@
-import { useRef, useState } from "react";
+"use client";
+
+import { use, useRef } from "react";
 import { Button, HStack, Input, InputGroup, Stack } from "@chakra-ui/react";
 
-import getData from "../lib/getData";
 import postData from "../lib/postData";
+import sampleData from "../app/example.json";
 
 export default function MyForm({ setData }) {
   const colorsRef = useRef();
 
   const url = "http://localhost:8000/api/v0/picks/combos";
 
-  async function handleClick(e) {
+  function handleClick(e) {
     e.preventDefault();
+    console.log("handling click");
     let val = colorsRef.current.value;
-    await postData(url, JSON.parse(val), setData);
+    const colorFetch = postData("http://0.0.0.0:8000/api/v0/picks/combos", [
+      "#ffffff",
+      "#000000",
+    ]);
+    // reset it somehow
+    setData(sampleData);
   }
-
-  //     await postData(url,
-  //       colorsRef.current.value,
-  //       setData
-  //     }).then((data) => {
-  //       if (data) {
-  //         console.log(data);
-  //         getData(url, setData);
-  //       }
-  //     });
-  //     e.target.reset();
-  //   }
 
   return (
     <HStack>

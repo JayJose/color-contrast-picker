@@ -1,5 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
+
+import { use, useState } from "react";
 
 // styling
 import { Inter } from "next/font/google";
@@ -18,40 +19,33 @@ import {
 } from "@chakra-ui/react";
 
 // custom components
-import MyForm from "./components/Form";
-import MyTable from "./components/Table";
-import MyHeader from "./components/Header";
-import MyCard from "./components/Card";
+import MyCard from "../components/Card";
+import MyForm from "../components/Form";
+import MyHeader from "../components/Header";
+import MyTable from "../components/Table";
+import MyTag from "../components/Tag";
 
 // helper functions
-import postData from "./lib/postData";
+import postData from "../lib/postData";
+import getSampleData from "@/lib/getSampleData";
 
-// sample data
-import sampleData from "./example.json";
-import MyTag from "./components/Tag";
-
-// sample array ["#0000ff", "#4b0082", "#ee82ee"]
+//
+const colors = [
+  "#ff0000",
+  "#ffa500",
+  "#ffff00",
+  "#008000",
+  // "#0000ff",
+  // "#4b0082",
+  // "#ee82ee",
+];
+// const colorFetch = getSampleData();
+const colorFetch = postData("http://0.0.0.0:8000/api/v0/picks/combos", colors);
 
 export default function Home() {
-  const [data, setData] = useState(sampleData);
+  const [data, setData] = useState(use(colorFetch));
 
-  const url = "http://localhost:8000/api/v0/picks/combos";
-  // useEffect(() => {
-  //   console.log("running useEffect");
-  //   postData(url, ["#FFFFFF", "#000000", "#FFF000"], setData);
-  // }, []);
-
-  const [gridData, setGridData] = useState(data.results.colorCombos);
-
-  const colors = [
-    "#ff0000",
-    "#ffa500",
-    "#ffff00",
-    "#008000",
-    "#0000ff",
-    "#4b0082",
-    "#ee82ee",
-  ];
+  console.log(data);
 
   return (
     <>
@@ -67,8 +61,8 @@ export default function Home() {
         >
           <MyForm setData={setData} />
           <HStack>
-            {colors.map((c) => (
-              <MyTag label={c} color={c} />
+            {data.results.colors.map((c, i) => (
+              <MyTag key={i} label={c} color={c} />
             ))}
           </HStack>
           <Divider></Divider>
@@ -78,7 +72,6 @@ export default function Home() {
           <SimpleGrid columns={2} spacingX="50px" spacingY="50px">
             {data.results.colorCombos.map((e, i) => (
               <MyCard
-                key={i}
                 foregroundColor={e.colorOne}
                 backgroundColor={e.colorTwo}
                 aaResult={e.results.results.AA}
@@ -87,7 +80,6 @@ export default function Home() {
               />
             ))}
           </SimpleGrid>
-          <Text>{JSON.stringify(gridData)}</Text>
         </VStack>
       </Container>
     </>

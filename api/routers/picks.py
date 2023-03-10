@@ -1,6 +1,5 @@
 from fastapi import APIRouter
 
-
 from utility.combinations import get_combinations
 from utility.responses import init_response
 from utility.strings import generate_url, is_hex_color
@@ -35,7 +34,7 @@ def get_scores(color_one: str = "#000000", color_two: str = "#FFFFFF"):
 def get_combos(colors: list[str]):
 
     if all([is_hex_color(color) for color in colors]):
-        response = init_response()
+        response = init_response(colors)
 
         combos = get_combinations(colors, 2)
         for combo in combos:
@@ -45,26 +44,7 @@ def get_combos(colors: list[str]):
             scores = get_scores(color_one, color_two)
             colorCombo["results"] = scores
             response["colorCombos"].append(colorCombo)
-        return {"message": "WebAIM API request successful.", "results": response}
-    else:
-        return {"message": "1 or more colors is invalid."}
-
-@router.get("/sample")
-def get_sample_data():
-
-    colors = ["#ff0000", "#ffa500", "#ffff00",]
-
-    if all([is_hex_color(color) for color in colors]):
-        response = init_response()
-
-        combos = get_combinations(colors, 2)
-        for combo in combos:
-            color_one = combo[0]
-            color_two = combo[1]
-            colorCombo = {"colorOne": color_one, "colorTwo": color_two}
-            scores = get_scores(color_one, color_two)
-            colorCombo["results"] = scores
-            response["colorCombos"].append(colorCombo)
+            print(f"returning {response}")
         return {"message": "WebAIM API request successful.", "results": response}
     else:
         return {"message": "1 or more colors is invalid."}

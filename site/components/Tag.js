@@ -1,3 +1,5 @@
+"use client";
+
 import { Box, Tag, TagLabel, TagCloseButton } from "@chakra-ui/react";
 
 export default function MyTag({ label, color }) {
