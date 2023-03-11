@@ -32,7 +32,7 @@ export default function MyForm({ setData }) {
         ref={colorsRef}
       />
       <Button bg={"black"} onClick={handleClick} color="white">
-        Go
+        +Add
       </Button>
     </HStack>
   );

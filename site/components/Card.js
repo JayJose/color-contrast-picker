@@ -51,7 +51,7 @@ export default function MyCard({
   aaaResult,
   contrastRatio,
 }) {
-  const [colors, setColors] = useState([foregroundColor, backgroundColor]);
+  const colors = [foregroundColor, backgroundColor];
   return (
     <Card minW="sm">
       <CardHeader>
@@ -89,9 +89,9 @@ export default function MyCard({
         <HStack mr={4}>
           <Text color="black">Toggle colors</Text>
           <Switch
-            onChange={() => {
-              setColors(colors.slice().reverse());
-            }}
+          // onChange={() => {
+          //   setColors(colors.slice().reverse());
+          // }}
           />
         </HStack>
       </CardFooter>

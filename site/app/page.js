@@ -9,6 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 // chakra components
 import {
+  Box,
   Container,
   Divider,
   HStack,
@@ -28,22 +29,24 @@ import MyTag from "../components/Tag";
 import postData from "../lib/postData";
 
 //
-const colors = [
-  "#ff0000",
-  "#ffa500",
-  "#ffff00",
-  // "#008000",
-  // "#0000ff",
-  // "#4b0082",
-  // "#ee82ee",
-];
-// const colorFetch = getSampleData();
-const colorFetch = postData("http://0.0.0.0:8000/api/v0/picks/combos", colors);
 
 export default function Home() {
-  const [data, setData] = useState("blue");
+  const colors = [
+    "#ff0000",
+    "#ffa500",
+    "#ffff00",
+    // "#008000",
+    // "#0000ff",
+    // "#4b0082",
+    // "#ee82ee",
+  ];
+  // const colorFetch = getSampleData();
+  const colorFetch = postData(
+    "http://0.0.0.0:8000/api/v0/picks/combos",
+    colors
+  );
 
-  useEffect(() => setColor(use(colorFetch)), []);
+  const [data, setData] = useState(use(colorFetch));
 
   return (
     <>
@@ -57,7 +60,7 @@ export default function Home() {
           align="stretch"
           borderRadius={"10px"}
         >
-          <MyForm />
+          <MyForm setData={setData} />
           <HStack>
             {data.results.colors.map((c, i) => (
               <MyTag key={i} label={c} color={c} />
