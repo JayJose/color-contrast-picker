@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 
 import { HamburgerIcon, ExternalLinkIcon } from "@chakra-ui/icons";
+import { Home } from "grommet-icons";
 
 export default function MyHeader() {
   const headerConfig = { primaryColor: "black", secColor: "white" };

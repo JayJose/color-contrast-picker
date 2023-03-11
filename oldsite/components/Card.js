@@ -66,13 +66,10 @@ export default function MyCard({
         <Stack mt="1" spacing="3">
           <Heading size="md">Lorem Ipsum</Heading>
           <Text>
-            The gravediggers gettin' stuck in the machine Picking getting slim,
-            slimmer I hear them say my name "Regina, Regina, Regina-ah-ah" Yes,
-            I'm putting the boulder to my ear And I still can't hear What'd you
-            think I was an amateur Playing with my temperature?
-            (Cha-cha-cha-'ture) If I hear another song about angels If I see
-            another feather on the dumb-box I'm going to go to Babylon and get
-            me some whiskey Gonna go to Babylon and get me some whiskey now
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
           </Text>
         </Stack>
       </CardBody>
