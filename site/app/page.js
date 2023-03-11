@@ -22,19 +22,17 @@ import {
 import MyCard from "../components/Card";
 import MyForm from "../components/Form";
 import MyHeader from "../components/Header";
-import MyTable from "../components/Table";
 import MyTag from "../components/Tag";
 
 // helper functions
 import postData from "../lib/postData";
-import getSampleData from "@/lib/getSampleData";
 
 //
 const colors = [
   "#ff0000",
   "#ffa500",
   "#ffff00",
-  "#008000",
+  // "#008000",
   // "#0000ff",
   // "#4b0082",
   // "#ee82ee",
@@ -43,9 +41,9 @@ const colors = [
 const colorFetch = postData("http://0.0.0.0:8000/api/v0/picks/combos", colors);
 
 export default function Home() {
-  const [data, setData] = useState(use(colorFetch));
+  const [data, setData] = useState("blue");
 
-  console.log(data);
+  useEffect(() => setColor(use(colorFetch)), []);
 
   return (
     <>
@@ -59,7 +57,7 @@ export default function Home() {
           align="stretch"
           borderRadius={"10px"}
         >
-          <MyForm setData={setData} />
+          <MyForm />
           <HStack>
             {data.results.colors.map((c, i) => (
               <MyTag key={i} label={c} color={c} />
@@ -72,6 +70,7 @@ export default function Home() {
           <SimpleGrid columns={2} spacingX="50px" spacingY="50px">
             {data.results.colorCombos.map((e, i) => (
               <MyCard
+                key={i}
                 foregroundColor={e.colorOne}
                 backgroundColor={e.colorTwo}
                 aaResult={e.results.results.AA}
