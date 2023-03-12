@@ -52,6 +52,7 @@ export default function MyCard({
   contrastRatio,
 }) {
   const colors = [foregroundColor, backgroundColor];
+  const text = "The quick brown fox jumps over the lazy dog.";
   return (
     <Card minW="sm">
       <CardHeader>
@@ -64,16 +65,16 @@ export default function MyCard({
       </CardHeader>
       <CardBody color={colors[0]} bg={colors[1]}>
         <Stack mt={0} spacing={1}>
-          {/* <Text fontSize="6xl">Lorem ipsum</Text>
-          <Text fontSize="5xl">Lorem ipsum</Text>
-          <Text fontSize="4xl">Lorem ipsum</Text>
-          <Text fontSize="3xl">Lorem ipsum</Text> */}
-          <Text fontSize="2xl">Lorem ipsum</Text>
-          <Text fontSize="xl">Lorem ipsum</Text>
-          <Text fontSize="lg">Lorem ipsum</Text>
-          <Text fontSize="md">Lorem ipsum</Text>
-          <Text fontSize="sm">Lorem ipsum</Text>
-          <Text fontSize="xs">Lorem ipsum</Text>
+          {/* <Text fontSize="6xl">{text}</Text>
+          <Text fontSize="5xl">{text}</Text>
+          <Text fontSize="4xl">{text}</Text>
+          <Text fontSize="3xl">{text}</Text> */}
+          {/* <Text fontSize="2xl">{text}</Text> */}
+          <Text fontSize="xl">{text}</Text>
+          <Text fontSize="lg">{text}</Text>
+          <Text fontSize="md">{text}</Text>
+          <Text fontSize="sm">{text}</Text>
+          <Text fontSize="xs">{text}</Text>
         </Stack>
       </CardBody>
       <CardFooter color="white" alignItems={"center"}>
@@ -90,7 +91,7 @@ export default function MyCard({
         </HStack>
         <Spacer />
         <HStack mr={4}>
-          <Text color="black">Toggle colors</Text>
+          <Text color="black">Swap colors:</Text>
           <Switch
           // onChange={() => {
           //   setColors(colors.slice().reverse());
