@@ -64,10 +64,10 @@ export default function Home() {
               ))}
             </HStack>
             <Divider></Divider>
-            <Heading fontWeight={300} size="md">
+            <Heading pt={3} fontWeight={800} size="md" align={"center"}>
               Accessibility Results
             </Heading>
-            <SimpleGrid columns={2} spacingX="20px" spacingY="20px">
+            <SimpleGrid pt={3} columns={2} spacingX="20px" spacingY="20px">
               {data.results.colorCombos.map((e, i) => (
                 <MyCard
                   key={i}
