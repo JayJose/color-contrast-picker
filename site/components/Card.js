@@ -51,19 +51,23 @@ export default function MyCard({
   aaaResult,
   contrastRatio,
 }) {
-  const colors = [foregroundColor, backgroundColor];
+  // const [cardColors, setCardColors] = useState([
+  //   foregroundColor,
+  //   backgroundColor,
+  // ]);
+  const cardColors = [foregroundColor, backgroundColor];
   const text = "The quick brown fox jumps over the lazy dog.";
   return (
     <Card minW="sm">
       <CardHeader>
         <HStack>
           <Text color="black">Colors: </Text>
-          {colors.map((c, i) => (
+          {cardColors.map((c, i) => (
             <MyTag key={i} label={c} color={c} />
           ))}
         </HStack>
       </CardHeader>
-      <CardBody color={colors[0]} bg={colors[1]}>
+      <CardBody color={cardColors[0]} bg={cardColors[1]}>
         <Stack mt={0} spacing={1}>
           {/* <Text fontSize="6xl">{text}</Text>
           <Text fontSize="5xl">{text}</Text>
@@ -94,7 +98,7 @@ export default function MyCard({
           <Text color="black">Swap colors:</Text>
           <Switch
           // onChange={() => {
-          //   setColors(colors.slice().reverse());
+          //   setCardColors(cardColors.slice().reverse());
           // }}
           />
         </HStack>

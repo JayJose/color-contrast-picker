@@ -28,18 +28,12 @@ import postData from "../lib/postData";
 export default function Home() {
   const [show, setShow] = useState(false);
   const [data, setData] = useState([]);
-  const [colors, setColors] = useState([
-    "#FFFF00",
-    "#FF3300",
-    "#099FFF",
-    "#000000",
-  ]);
+  const [colors, setColors] = useState(["#FFFFFF", "#FFF000", "#000000"]);
 
   useEffect(() => {
     console.log("running useEffect");
     postData("http://0.0.0.0:8000/api/v0/picks/combos", colors).then((data) => {
       setData(data);
-      setColors(data.results.colors);
       setShow(true);
     });
   }, []);
@@ -50,7 +44,7 @@ export default function Home() {
       {show && (
         <Container bg={"#f9f9f9"} maxW="container.xl" p={{ base: 0, md: 3 }}>
           <VStack
-            h="95vh"
+            h="100%"
             w="100%"
             p={4}
             spacing={2}
