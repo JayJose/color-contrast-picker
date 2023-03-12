@@ -57,7 +57,12 @@ export default function MyHeader() {
                 >
                   <MenuItem>
                     <Link href="https://github.com/JayJose/contrast-color-picker">
-                      View the repo <ExternalLinkIcon />
+                      Visit the repo <ExternalLinkIcon />
+                    </Link>
+                  </MenuItem>
+                  <MenuItem>
+                    <Link href="https://github.com/users/JayJose/projects/2">
+                      Visit the project <ExternalLinkIcon />
                     </Link>
                   </MenuItem>
                   <MenuItem>
