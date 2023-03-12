@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 
 // components
@@ -49,26 +51,34 @@ export default function MyCard({
   aaaResult,
   contrastRatio,
 }) {
-  const [colors, setColors] = useState([foregroundColor, backgroundColor]);
+  // const [cardColors, setCardColors] = useState([
+  //   foregroundColor,
+  //   backgroundColor,
+  // ]);
+  const cardColors = [foregroundColor, backgroundColor];
+  const text = "The quick brown fox jumps over the lazy dog.";
   return (
     <Card minW="sm">
       <CardHeader>
         <HStack>
           <Text color="black">Colors: </Text>
-          {colors.map((c) => (
-            <MyTag label={c} color={c} />
+          {cardColors.map((c, i) => (
+            <MyTag key={i} label={c} color={c} />
           ))}
         </HStack>
       </CardHeader>
-      <CardBody color={colors[0]} bg={colors[1]}>
-        <Stack mt="1" spacing="3">
-          <Heading size="md">Lorem Ipsum</Heading>
-          <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Text>
+      <CardBody color={cardColors[0]} bg={cardColors[1]}>
+        <Stack mt={0} spacing={1}>
+          {/* <Text fontSize="6xl">{text}</Text>
+          <Text fontSize="5xl">{text}</Text>
+          <Text fontSize="4xl">{text}</Text>
+          <Text fontSize="3xl">{text}</Text> */}
+          {/* <Text fontSize="2xl">{text}</Text> */}
+          <Text fontSize="xl">{text}</Text>
+          <Text fontSize="lg">{text}</Text>
+          <Text fontSize="md">{text}</Text>
+          <Text fontSize="sm">{text}</Text>
+          <Text fontSize="xs">{text}</Text>
         </Stack>
       </CardBody>
       <CardFooter color="white" alignItems={"center"}>
@@ -85,11 +95,11 @@ export default function MyCard({
         </HStack>
         <Spacer />
         <HStack mr={4}>
-          <Text color="black">Toggle colors</Text>
+          <Text color="black">Swap colors:</Text>
           <Switch
-            onChange={() => {
-              setColors(colors.slice().reverse());
-            }}
+          // onChange={() => {
+          //   setCardColors(cardColors.slice().reverse());
+          // }}
           />
         </HStack>
       </CardFooter>

@@ -4,7 +4,7 @@ A web-based tool to assess the accessibility of contrasting colors
 
 ![image info](/docs/img/sample.png)
 
-*Above: Multiple color combinations*
+*Above: A screenshot of the tool*
 
 ## Getting started
 
