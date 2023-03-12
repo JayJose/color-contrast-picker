@@ -22,8 +22,12 @@ export default function MyForm({ setData, colors, setColors }) {
 
   const addColor = async (event) => {
     event.preventDefault();
-
     console.log("executing addColor");
+    if (colors.includes(inputVal)) {
+      alert("That color already exists");
+      setInputVal("");
+      return;
+    }
     if (/^#[0-9A-F]{6}$/i.test(inputVal)) {
       setColors((oldColors) => [...oldColors, inputVal]);
     } else {
@@ -39,7 +43,9 @@ export default function MyForm({ setData, colors, setColors }) {
           <FormLabel>Add a color</FormLabel>
           <Input
             type="text"
-            onChange={(event) => setInputVal(event.currentTarget.value)}
+            onChange={(event) =>
+              setInputVal(event.currentTarget.value.toUpperCase())
+            }
             placeholder="Give me a good one."
             value={inputVal}
             bg={"white"}
