@@ -22,7 +22,7 @@ def get_scores(color_one: str = "#000000", color_two: str = "#FFFFFF"):
         url = generate_url(color_one, color_two)
         r = requests.get(url)
         if r.status_code == 200:
-            return {"message": "WebAIM API request successful.", "results": r.json()}
+            return {"results": r.json()}
         else:
             return {"message": "WebAIM API request failed."}
 
@@ -44,7 +44,6 @@ def get_combos(colors: list[str]):
             scores = get_scores(color_one, color_two)
             colorCombo["results"] = scores
             response["colorCombos"].append(colorCombo)
-            print(f"returning {response}")
-        return {"message": "WebAIM API request successful.", "results": response}
+        return {"results": response}
     else:
         return {"message": "1 or more colors is invalid."}

@@ -5,6 +5,6 @@ def init_response(colors: list[str]) -> dict:
     response = {}
     response["requestId"] = str(get_epoch())
     response["requestTs"] = get_utc_datetime().strftime("%Y-%m-%d %H:%M:%S")
+    response["colors"] = colors    
     response["colorCombos"] = []
-    response["colors"] = colors
     return response
