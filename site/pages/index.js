@@ -45,9 +45,9 @@ export default function Home() {
 
   return (
     <>
-      <MyHeader></MyHeader>
+      <MyHeader />
       {show && (
-        <Container bg={"#f9f9f9"} maxW="container.xl" p={{ base: 0, md: 3 }}>
+        <Container bg={"white"} maxW="container.xl" p={{ base: 0, md: 3 }}>
           <VStack
             h="100%"
             w="100%"
@@ -73,9 +73,9 @@ export default function Home() {
                   key={i}
                   foregroundColor={e.colorOne}
                   backgroundColor={e.colorTwo}
-                  aaResult={e.results.results.AA}
-                  aaaResult={e.results.results.AAA}
-                  contrastRatio={e.results.results.ratio}
+                  aaResult={e.results.AA}
+                  aaaResult={e.results.AAA}
+                  contrastRatio={e.results.ratio}
                 />
               ))}
             </SimpleGrid>
