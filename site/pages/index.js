@@ -28,7 +28,12 @@ import postData from "../lib/postData";
 export default function Home() {
   const [show, setShow] = useState(false);
   const [data, setData] = useState([]);
-  const [colors, setColors] = useState(["#FFFFFF", "#FFF000", "#000000"]);
+  const [colors, setColors] = useState([
+    "#1e3d59",
+    "#f5f0e1",
+    "#ff6e40",
+    "#ffc13b",
+  ]);
 
   useEffect(() => {
     console.log("running useEffect");
