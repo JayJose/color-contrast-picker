@@ -63,17 +63,17 @@ export default function MyCard({
         </HStack>
       </CardHeader>
       <CardBody color={colors[0]} bg={colors[1]}>
-        <Stack mt="1" spacing="3">
-          <Heading size="md">Lorem Ipsum</Heading>
-          <Text>
-            The gravediggers gettin' stuck in the machine Picking getting slim,
-            slimmer I hear them say my name "Regina, Regina, Regina-ah-ah" Yes,
-            I'm putting the boulder to my ear And I still can't hear What'd you
-            think I was an amateur Playing with my temperature?
-            (Cha-cha-cha-'ture) If I hear another song about angels If I see
-            another feather on the dumb-box I'm going to go to Babylon and get
-            me some whiskey Gonna go to Babylon and get me some whiskey now
-          </Text>
+        <Stack mt={0} spacing={1}>
+          {/* <Text fontSize="6xl">Lorem ipsum</Text>
+          <Text fontSize="5xl">Lorem ipsum</Text>
+          <Text fontSize="4xl">Lorem ipsum</Text>
+          <Text fontSize="3xl">Lorem ipsum</Text> */}
+          <Text fontSize="2xl">Lorem ipsum</Text>
+          <Text fontSize="xl">Lorem ipsum</Text>
+          <Text fontSize="lg">Lorem ipsum</Text>
+          <Text fontSize="md">Lorem ipsum</Text>
+          <Text fontSize="sm">Lorem ipsum</Text>
+          <Text fontSize="xs">Lorem ipsum</Text>
         </Stack>
       </CardBody>
       <CardFooter color="white" alignItems={"center"}>

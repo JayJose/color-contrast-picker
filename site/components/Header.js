@@ -31,7 +31,7 @@ export default function MyHeader() {
       >
         <Box p="0">
           <Heading size="lg" fontWeight={300} color={headerConfig.primaryColor}>
-            Contrast Color Picker
+            Contrast Color Accessibility Assessment
           </Heading>
         </Box>
         <HStack spacing={2}>

@@ -57,7 +57,8 @@ export default function Home() {
             align="stretch"
             borderRadius={"10px"}
           >
-            <MyForm setData={setData} setColors={setColors} />
+            <MyForm setData={setData} colors={colors} setColors={setColors} />
+            <Divider></Divider>
             <HStack>
               {colors.map((c, i) => (
                 <MyTag key={i} label={c} color={c} />
@@ -67,7 +68,7 @@ export default function Home() {
             <Heading fontWeight={300} size="md">
               Accessibility Results
             </Heading>
-            <SimpleGrid columns={2} spacingX="50px" spacingY="50px">
+            <SimpleGrid columns={2} spacingX="20px" spacingY="20px">
               {data.results.colorCombos.map((e, i) => (
                 <MyCard
                   key={i}

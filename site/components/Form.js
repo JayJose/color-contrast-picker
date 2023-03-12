@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Button,
   HStack,
@@ -9,22 +9,16 @@ import {
 } from "@chakra-ui/react";
 
 import postData from "../lib/postData";
-import sampleData from "../data/example.json";
 
-export default function MyForm({ setData, setColors }) {
+export default function MyForm({ setData, colors, setColors }) {
+  const url = "http://localhost:8000/api/v0/picks/combos";
   const [inputVal, setInputVal] = useState("");
 
-  const url = "http://localhost:8000/api/v0/picks/combos";
-
-  // async function handleClick(e) {
-  //   e.preventDefault();
-  //   console.log("handling click");
-  //   let val = colorsRef.current.value;
-  //   const colorFetch = postData("http://0.0.0.0:8000/api/v0/picks/combos", [
-  //     "#ffffff",
-  //     "#000000",
-  //   ]);
-  // }
+  useEffect(() => {
+    postData(url, colors).then((data) => {
+      setData(data);
+    });
+  }, [colors]);
 
   const addColor = async (event) => {
     event.preventDefault();
@@ -33,7 +27,7 @@ export default function MyForm({ setData, setColors }) {
     if (/^#[0-9A-F]{6}$/i.test(inputVal)) {
       setColors((oldColors) => [...oldColors, inputVal]);
     } else {
-      alert("Wrong!");
+      alert("Not a valid hex color");
     }
     setInputVal("");
   };
@@ -42,21 +36,28 @@ export default function MyForm({ setData, setColors }) {
     <HStack>
       <form onSubmit={addColor}>
         <FormControl>
-          <FormLabel>Colors</FormLabel>
+          <FormLabel>Add a color</FormLabel>
           <Input
             type="text"
             onChange={(event) => setInputVal(event.currentTarget.value)}
             placeholder="Give me a good one."
             value={inputVal}
+            bg={"white"}
           />
           <FormHelperText>
-            Enter colors as 6-digit hex colors (ex: #FFFFFF).
+            Enter colors as 6-digit hex colors (ex: #FFFFFF)
           </FormHelperText>
         </FormControl>
-        <Button bg={"black"} type={"submit"} onClick={addColor} color="white">
-          +Add
-        </Button>
       </form>
+      <Button
+        alignSelf={"right"}
+        bg={"black"}
+        type={"submit"}
+        onClick={addColor}
+        color="white"
+      >
+        +Add
+      </Button>
     </HStack>
   );
 }
