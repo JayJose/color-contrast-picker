@@ -56,18 +56,24 @@ export default function Home() {
             align="stretch"
             borderRadius={"10px"}
           >
+            <Heading pt={0} fontWeight={800} size="md" align={"center"}>
+              Add Colors
+            </Heading>
             <MyForm setData={setData} colors={colors} setColors={setColors} />
-            <Divider></Divider>
-            <HStack>
+            <Divider pb={3}></Divider>
+            <Heading pt={2} fontWeight={800} size="md" align={"center"}>
+              Your Colors
+            </Heading>
+            <HStack justifyContent={"center"}>
               {colors.map((c, i) => (
                 <MyTag key={i} label={c} color={c} />
               ))}
             </HStack>
-            <Divider></Divider>
-            <Heading pt={3} fontWeight={800} size="md" align={"center"}>
+            <Divider pb={3}></Divider>
+            <Heading pt={2} fontWeight={800} size="md" align={"center"}>
               Accessibility Results
             </Heading>
-            <SimpleGrid pt={3} columns={2} spacingX="20px" spacingY="20px">
+            <SimpleGrid pt={2} columns={2} spacingX="20px" spacingY="20px">
               {data.results.colorCombos.map((e, i) => (
                 <MyCard
                   key={i}
