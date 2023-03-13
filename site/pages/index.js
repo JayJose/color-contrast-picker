@@ -61,7 +61,13 @@ export default function Home() {
             <VStack>
               <HStack justifyContent={"center"}>
                 {colors.map((c, i) => (
-                  <MyTag key={i} label={c} color={c} />
+                  <MyTag
+                    key={i}
+                    label={c}
+                    color={c}
+                    colors={colors}
+                    setColors={setColors}
+                  />
                 ))}
               </HStack>
               <MyInput
