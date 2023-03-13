@@ -30,18 +30,15 @@ export default function MyInput({ setData, colors, setColors }) {
   };
 
   return (
-    <VStack mb={-1}>
-      <Text alignSelf={"left"} size="xs">
-        Add a color
-      </Text>
-      <HStack>
+    <VStack>
+      <HStack mt={2}>
         <Input
           size="sm"
           type="text"
           onChange={(event) =>
             setInputVal(event.currentTarget.value.toUpperCase())
           }
-          placeholder="Give me a good one"
+          placeholder="Add a color "
           value={inputVal}
           bg={"white"}
         />
