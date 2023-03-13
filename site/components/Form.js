@@ -40,13 +40,12 @@ export default function MyForm({ setData, colors, setColors }) {
     <HStack>
       <form onSubmit={addColor}>
         <FormControl>
-          <FormLabel>Add a color</FormLabel>
           <Input
             type="text"
             onChange={(event) =>
               setInputVal(event.currentTarget.value.toUpperCase())
             }
-            placeholder="Give me a good one."
+            placeholder="Give me a good one"
             value={inputVal}
             bg={"white"}
           />

@@ -5,7 +5,6 @@ import { Inter } from "next/font/google";
 
 // chakra components
 import {
-  Box,
   Container,
   Divider,
   HStack,
@@ -17,9 +16,9 @@ import {
 
 // custom components
 import MyCard from "../components/Card";
-import MyForm from "../components/Form";
 import MyHeader from "../components/Header";
 import MyTag from "../components/Tag";
+import MyInput from "../components/Input";
 
 // helper functions
 import postData from "../lib/postData";
@@ -51,24 +50,26 @@ export default function Home() {
           <VStack
             h="100%"
             w="100%"
-            p={4}
+            p={0}
             spacing={2}
             align="stretch"
             borderRadius={"10px"}
           >
             <Heading pt={0} fontWeight={800} size="md" align={"center"}>
-              Add Colors
-            </Heading>
-            <MyForm setData={setData} colors={colors} setColors={setColors} />
-            <Divider pb={3}></Divider>
-            <Heading pt={2} fontWeight={800} size="md" align={"center"}>
               Your Colors
             </Heading>
-            <HStack justifyContent={"center"}>
-              {colors.map((c, i) => (
-                <MyTag key={i} label={c} color={c} />
-              ))}
-            </HStack>
+            <VStack>
+              <HStack justifyContent={"center"}>
+                {colors.map((c, i) => (
+                  <MyTag key={i} label={c} color={c} />
+                ))}
+              </HStack>
+              <MyInput
+                setData={setData}
+                colors={colors}
+                setColors={setColors}
+              />
+            </VStack>
             <Divider pb={3}></Divider>
             <Heading pt={2} fontWeight={800} size="md" align={"center"}>
               Accessibility Results
