@@ -1,4 +1,5 @@
 .vscode/
+i.sh
 
 #### GITHUB AUTO-GENERATED PYTHON .GITIGNORE ####
 
@@ -127,3 +128,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+ish.sh
