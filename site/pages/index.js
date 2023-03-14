@@ -33,16 +33,16 @@ export default function Home() {
   const [show, setShow] = useState(false);
   const [data, setData] = useState([]);
   const [colors, setColors] = useState([
-    "#1e3d59",
-    "#f5f0e1",
-    "#ff6e40",
-    "#ffc13b",
+    "#1E3D59",
+    "#F5F0E1",
+    "#FF6E40",
+    "#FFC13B",
   ]);
 
   useEffect(() => {
     console.log("running useEffect");
     postData(
-      "https://contrast-colors-api.azurewebsites.net/api/v0/picks/combos",
+      `${process.env.NEXT_PUBLIC_API_URL}/api/v0/picks/combos`,
       colors
     ).then((data) => {
       setData(data);
@@ -58,7 +58,7 @@ export default function Home() {
           <VStack
             h="100%"
             w="100%"
-            p={0}
+            p={{ base: 1, md: 2 }}
             spacing={2}
             align="stretch"
             borderRadius={"10px"}
@@ -70,7 +70,7 @@ export default function Home() {
               </Heading>
               <Tooltip
                 hasArrow
-                label="Click a color pill to remove it from your palette."
+                label="Click a color to remove it from your palette."
                 bg="gray.300"
                 color="black"
               >
@@ -100,7 +100,12 @@ export default function Home() {
             <Heading pt={2} fontWeight={800} size="md" align={"center"}>
               Accessibility Results
             </Heading>
-            <SimpleGrid pt={2} columns={2} spacingX="20px" spacingY="20px">
+            <SimpleGrid
+              pt={2}
+              columns={{ base: 1, md: 2 }}
+              spacingX="20px"
+              spacingY="20px"
+            >
               {data.results.colorCombos.map((e, i) => (
                 <MyCard
                   key={i}
