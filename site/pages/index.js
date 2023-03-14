@@ -33,10 +33,10 @@ export default function Home() {
   const [show, setShow] = useState(false);
   const [data, setData] = useState([]);
   const [colors, setColors] = useState([
-    "#1e3d59",
-    "#f5f0e1",
-    "#ff6e40",
-    "#ffc13b",
+    "#1E3D59",
+    "#F5F0E1",
+    "#FF6E40",
+    "#FFC13B",
   ]);
 
   useEffect(() => {
@@ -70,7 +70,7 @@ export default function Home() {
               </Heading>
               <Tooltip
                 hasArrow
-                label="Click a color pill to remove it from your palette."
+                label="Click a color to remove it from your palette."
                 bg="gray.300"
                 color="black"
               >
