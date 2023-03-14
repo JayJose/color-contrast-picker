@@ -41,7 +41,10 @@ export default function Home() {
 
   useEffect(() => {
     console.log("running useEffect");
-    postData("http://0.0.0.0:8000/api/v0/picks/combos", colors).then((data) => {
+    postData(
+      "https://contrast-colors-api.azurewebsites.net/api/v0/picks/combos",
+      colors
+    ).then((data) => {
       setData(data);
       setShow(true);
     });
