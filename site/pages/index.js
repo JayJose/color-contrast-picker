@@ -12,13 +12,18 @@ import {
   SimpleGrid,
   Text,
   VStack,
+  Tooltip,
 } from "@chakra-ui/react";
+
+// chakra icons
+import { InfoIcon } from "@chakra-ui/icons";
 
 // custom components
 import MyCard from "../components/Card";
 import MyHeader from "../components/Header";
 import MyTag from "../components/Tag";
 import MyInput from "../components/Input";
+import MyFooter from "../components/Footer";
 
 // helper functions
 import postData from "../lib/postData";
@@ -54,10 +59,21 @@ export default function Home() {
             spacing={2}
             align="stretch"
             borderRadius={"10px"}
+            mb={4}
           >
-            <Heading pt={0} fontWeight={800} size="md" align={"center"}>
-              Your Colors
-            </Heading>
+            <HStack justifyContent={"center"}>
+              <Heading pt={0} fontWeight={800} size="md" align={"center"}>
+                Your Color Palette
+              </Heading>
+              <Tooltip
+                hasArrow
+                label="Click a color pill to remove it from your palette."
+                bg="gray.300"
+                color="black"
+              >
+                <InfoIcon boxSize={4} />
+              </Tooltip>
+            </HStack>
             <VStack>
               <HStack justifyContent={"center"}>
                 {colors.map((c, i) => (
@@ -67,6 +83,7 @@ export default function Home() {
                     color={c}
                     colors={colors}
                     setColors={setColors}
+                    canRemove={true}
                   />
                 ))}
               </HStack>
@@ -93,6 +110,8 @@ export default function Home() {
               ))}
             </SimpleGrid>
           </VStack>
+          <Divider />
+          <MyFooter />
         </Container>
       )}
     </>

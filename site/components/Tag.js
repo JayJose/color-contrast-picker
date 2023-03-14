@@ -2,7 +2,13 @@
 
 import { Box, Tag, TagLabel, TagCloseButton, Tooltip } from "@chakra-ui/react";
 
-export default function MyTag({ label, color, colors, setColors }) {
+export default function MyTag({
+  label,
+  color,
+  colors,
+  setColors,
+  canRemove = false,
+}) {
   const tag = {
     size: "sm",
     bg: "gray.500",
@@ -12,8 +18,10 @@ export default function MyTag({ label, color, colors, setColors }) {
   };
 
   function handleClick(e) {
-    let color = e.currentTarget.textContent;
-    setColors(colors.filter((c) => c !== color));
+    if (canRemove === true) {
+      let color = e.currentTarget.textContent;
+      setColors(colors.filter((c) => c !== color));
+    }
   }
 
   return (

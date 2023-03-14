@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&family=Roboto&display=swap');
 
 
-.mapboxgl-ctrl-attrib {
-    margin-bottom: "10px";
-    font-size: 8px;
-  }
+.footer > * {
+  text-align: center;
+  font-weight: 400;
+  font-size: 0.75rem;
+  padding: 0.05rem;
+  margin: 0.1rem;
+}
 
-  .crime-table-highlight tbody tr:hover {
-    background-color: #f9f0f9;
-    color: black;
-    
-}  
+.footer--icons {
+  margin: 5px
+}
