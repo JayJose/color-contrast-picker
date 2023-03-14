@@ -42,7 +42,7 @@ export default function Home() {
   useEffect(() => {
     console.log("running useEffect");
     postData(
-      "https://contrast-colors-api.azurewebsites.net/api/v0/picks/combos",
+      `${process.env.NEXT_PUBLIC_API_URL}/api/v0/picks/combos`,
       colors
     ).then((data) => {
       setData(data);
@@ -58,7 +58,7 @@ export default function Home() {
           <VStack
             h="100%"
             w="100%"
-            p={0}
+            p={{ base: 1, md: 2 }}
             spacing={2}
             align="stretch"
             borderRadius={"10px"}
@@ -100,7 +100,12 @@ export default function Home() {
             <Heading pt={2} fontWeight={800} size="md" align={"center"}>
               Accessibility Results
             </Heading>
-            <SimpleGrid pt={2} columns={2} spacingX="20px" spacingY="20px">
+            <SimpleGrid
+              pt={2}
+              columns={{ base: 1, md: 2 }}
+              spacingX="20px"
+              spacingY="20px"
+            >
               {data.results.colorCombos.map((e, i) => (
                 <MyCard
                   key={i}

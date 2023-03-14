@@ -11,8 +11,7 @@ import {
 import postData from "../lib/postData";
 
 export default function MyForm({ setData, colors, setColors }) {
-  const url =
-    "https://contrast-colors-api.azurewebsites.net/api/v0/picks/combos";
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/api/v0/picks/combos`;
   const [inputVal, setInputVal] = useState("");
 
   useEffect(() => {
