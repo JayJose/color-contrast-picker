@@ -65,7 +65,7 @@ export default function Home() {
             mb={4}
           >
             <HStack justifyContent={"center"}>
-              <Heading pt={0} fontWeight={800} size="md" align={"center"}>
+              <Heading pt={0} fontWeight={400} size="md" align={"center"}>
                 Your Color Palette
               </Heading>
               <Tooltip
@@ -97,9 +97,19 @@ export default function Home() {
               />
             </VStack>
             <Divider pb={3}></Divider>
-            <Heading pt={2} fontWeight={800} size="md" align={"center"}>
-              Accessibility Results
-            </Heading>
+            <HStack justifyContent={"center"}>
+              <Heading pt={2} fontWeight={400} size="md" align={"center"}>
+                Accessibility Results
+              </Heading>
+              <Tooltip
+                hasArrow
+                label="AA and AAA assessibility is evaluated for each combination of 2 colors from your palette. At least 2 colors are required to generate an assessment."
+                bg="gray.300"
+                color="black"
+              >
+                <InfoIcon boxSize={4} />
+              </Tooltip>
+            </HStack>
             <SimpleGrid
               pt={2}
               columns={{ base: 1, md: 2 }}

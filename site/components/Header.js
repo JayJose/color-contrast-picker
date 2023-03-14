@@ -11,6 +11,7 @@ import {
   MenuList,
   IconButton,
   Link,
+  Text,
 } from "@chakra-ui/react";
 
 import { HamburgerIcon, ExternalLinkIcon } from "@chakra-ui/icons";
@@ -31,8 +32,11 @@ export default function MyHeader() {
       >
         <Box p="0">
           <Heading size="lg" fontWeight={300} color={headerConfig.primaryColor}>
-            Contrast Color Accessibility Assessment
+            Color Contrast Assessment
           </Heading>
+          <Text fontSize="sm" color={headerConfig.primaryColor}>
+            Is your color palette accessible?
+          </Text>
         </Box>
         <HStack spacing={2}>
           <Menu>
