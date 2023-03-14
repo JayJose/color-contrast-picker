@@ -4,16 +4,10 @@ import { useState } from "react";
 
 // components
 import {
-  Button,
-  ButtonGroup,
-  Box,
   Card,
   CardHeader,
   CardBody,
   CardFooter,
-  Divider,
-  Heading,
-  Image,
   Stack,
   Spacer,
   Text,
@@ -22,13 +16,7 @@ import {
 } from "@chakra-ui/react";
 
 // icons
-import {
-  CheckIcon,
-  CheckCircleIcon,
-  CloseIcon,
-  QuestionIcon,
-  WarningIcon,
-} from "@chakra-ui/icons";
+import { CheckCircleIcon, QuestionIcon, WarningIcon } from "@chakra-ui/icons";
 
 // custom components
 import MyTag from "./Tag";
@@ -73,7 +61,7 @@ export default function MyCard({
           <Text fontSize="5xl">{text}</Text>
           <Text fontSize="4xl">{text}</Text>
           <Text fontSize="3xl">{text}</Text> */}
-          {/* <Text fontSize="2xl">{text}</Text> */}
+          <Text fontSize="2xl">{text}</Text>
           <Text fontSize="xl">{text}</Text>
           <Text fontSize="lg">{text}</Text>
           <Text fontSize="md">{text}</Text>
@@ -98,7 +86,7 @@ export default function MyCard({
           <Text color="black">Swap colors:</Text>
           <Switch
           // onChange={() => {
-          //   setCardColors(cardColors.slice().reverse());
+          //   setCardColors(() => cardColors.slice().reverse());
           // }}
           />
         </HStack>
