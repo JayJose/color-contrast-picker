@@ -47,7 +47,7 @@ export default function MyCard({
       <CardHeader>
         <HStack>
           <Text color="black">Colors: </Text>
-          {cardColors.map((c, i) => (
+          {[fg, bg].map((c, i) => (
             <MyTag key={i} label={c} color={c} />
           ))}
         </HStack>
@@ -77,9 +77,7 @@ export default function MyCard({
         <Spacer />
         <HStack mr={4}>
           <Text color="black">Swap colors:</Text>
-          <Switch
-          onChange={() => setIsReversed(!isReversed)}
-          />
+          <Switch onChange={() => setIsReversed(!isReversed)} />
         </HStack>
       </CardFooter>
     </Card>
