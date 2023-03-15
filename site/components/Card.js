@@ -1,6 +1,4 @@
-"use client";
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // components
 import {
@@ -56,10 +54,6 @@ export default function MyCard({
       </CardHeader>
       <CardBody color={fg} bg={bg}>
         <Stack mt={0} spacing={1}>
-          {/* <Text fontSize="6xl">{text}</Text>
-          <Text fontSize="5xl">{text}</Text>
-          <Text fontSize="4xl">{text}</Text>
-          <Text fontSize="3xl">{text}</Text> */}
           <Text fontSize="2xl">{text}</Text>
           <Text fontSize="xl">{text}</Text>
           <Text fontSize="lg">{text}</Text>
