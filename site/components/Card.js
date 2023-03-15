@@ -40,10 +40,10 @@ export default function MyCard({
   contrastRatio,
 }) {
   const [isReversed, setIsReversed] = useState(false);
-
-  const text = "The quick brown fox jumps over the lazy dog.";
   const fg = isReversed ? backgroundColor : foregroundColor;
   const bg = isReversed ? foregroundColor : backgroundColor;
+
+  const text = "The quick brown fox jumps over the lazy dog.";
   return (
     <Card minW="sm">
       <CardHeader>
