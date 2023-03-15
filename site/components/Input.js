@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Button, HStack, Input, Text, VStack } from "@chakra-ui/react";
 
 import postData from "../lib/postData";
+import { sortByRatio } from "../lib/sortData";
 
 export default function MyInput({ setData, colors, setColors }) {
   const url = `${process.env.NEXT_PUBLIC_API_URL}/api/v0/picks/combos`;
@@ -10,6 +11,7 @@ export default function MyInput({ setData, colors, setColors }) {
   useEffect(() => {
     postData(url, colors).then((data) => {
       setData(data);
+      sortByRatio(data.results.colorCombos);
     });
   }, [colors]);
 

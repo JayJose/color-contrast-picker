@@ -27,6 +27,7 @@ import MyFooter from "../components/Footer";
 
 // helper functions
 import postData from "../lib/postData";
+import { sortByRatio } from "../lib/sortData";
 
 // sample palettes
 import palettes from "../data/palettes.json";
@@ -47,6 +48,7 @@ export default function Home() {
     ).then((data) => {
       setData(data);
       setShow(true);
+      sortByRatio(data.results.colorCombos);
     });
   }, []);
 
