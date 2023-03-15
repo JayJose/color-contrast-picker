@@ -37,14 +37,9 @@ export default function MyCard({
   aaaResult,
   contrastRatio,
 }) {
-  const [cardColors, setCardColors] = useState([
-    foregroundColor,
-    backgroundColor,
-  ]);
-
-  useEffect(() => {
-    setCardColors([foregroundColor, backgroundColor]);
-  }, [foregroundColor, backgroundColor]);
+  const [isReversed, setIsReversed] = useState(false);
+  const fg = isReversed ? backgroundColor : foregroundColor;
+  const bg = isReversed ? foregroundColor : backgroundColor;
 
   const text = "The quick brown fox jumps over the lazy dog.";
   return (
@@ -52,12 +47,12 @@ export default function MyCard({
       <CardHeader>
         <HStack>
           <Text color="black">Colors: </Text>
-          {cardColors.map((c, i) => (
+          {[fg, bg].map((c, i) => (
             <MyTag key={i} label={c} color={c} />
           ))}
         </HStack>
       </CardHeader>
-      <CardBody color={cardColors[0]} bg={cardColors[1]}>
+      <CardBody color={fg} bg={bg}>
         <Stack mt={0} spacing={1}>
           <Text fontSize="2xl">{text}</Text>
           <Text fontSize="xl">{text}</Text>
@@ -82,11 +77,7 @@ export default function MyCard({
         <Spacer />
         <HStack mr={4}>
           <Text color="black">Swap colors:</Text>
-          <Switch
-            onChange={() => {
-              setCardColors(() => cardColors.slice().reverse());
-            }}
-          />
+          <Switch onChange={() => setIsReversed(!isReversed)} />
         </HStack>
       </CardFooter>
     </Card>
