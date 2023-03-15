@@ -17,9 +17,8 @@ export default function MyTag({
     labelColor: "white",
   };
 
-  function handleClick(e) {
+  function handleClick(color) {
     if (canRemove === true) {
-      let color = e.currentTarget.textContent;
       setColors(colors.filter((c) => c !== color));
     }
   }
@@ -30,10 +29,16 @@ export default function MyTag({
       borderRadius={tag.br}
       variant={tag.variant}
       bg={tag.bg}
-      onClick={handleClick}
     >
       <TagLabel color={tag.labelColor}>{label}</TagLabel>
       <Box bg={color} ml={1} p={1.5} borderRadius="full" />
+      {canRemove ? (
+        <TagCloseButton
+          size="sm"
+          className={color}
+          onClick={() => handleClick(color)}
+        />
+      ) : null}
     </Tag>
   );
 }

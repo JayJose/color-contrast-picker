@@ -68,20 +68,12 @@ export default function Home() {
               <Heading pt={0} fontWeight={400} size="md" align={"center"}>
                 Your Color Palette
               </Heading>
-              <Tooltip
-                hasArrow
-                label="Click a color to remove it from your palette."
-                bg="gray.300"
-                color="black"
-              >
-                <InfoIcon boxSize={4} />
-              </Tooltip>
             </HStack>
             <VStack>
               <HStack justifyContent={"center"}>
                 {colors.map((c, i) => (
                   <MyTag
-                    key={i}
+                    key={c}
                     label={c}
                     color={c}
                     colors={colors}

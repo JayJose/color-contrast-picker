@@ -8,7 +8,7 @@ export default function MyFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer class="footer">
+    <footer className="footer">
       <p>Made with 🍑 in Atlanta, GA.</p>
       <div>
         <a href={linkedinLink} className="footer--icons">
