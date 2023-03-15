@@ -29,15 +29,17 @@ export default function MyInput({ setData, colors, setColors }) {
     setInputVal("");
   };
 
+  function handleClick(event) {
+    setInputVal(event.currentTarget.value.toUpperCase());
+  }
+
   return (
     <VStack>
       <HStack mt={2}>
         <Input
           size="sm"
           type="text"
-          onChange={(event) =>
-            setInputVal(event.currentTarget.value.toUpperCase())
-          }
+          onChange={(event) => handleClick(event)}
           placeholder="Add a color "
           value={inputVal}
           bg={"white"}
