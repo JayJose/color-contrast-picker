@@ -28,16 +28,16 @@ import MyFooter from "../components/Footer";
 // helper functions
 import postData from "../lib/postData";
 
+// sample palettes
+import palettes from "../data/palettes.json";
+
 // HOME
 export default function Home() {
+  // initialize with a random palette
+  const paletteIx = Math.floor(Math.random() * palettes.length);
+  const [colors, setColors] = useState(palettes[paletteIx]);
   const [show, setShow] = useState(false);
   const [data, setData] = useState([]);
-  const [colors, setColors] = useState([
-    "#1E3D59",
-    "#F5F0E1",
-    "#FF6E40",
-    "#FFC13B",
-  ]);
 
   useEffect(() => {
     console.log("running useEffect");
@@ -49,6 +49,11 @@ export default function Home() {
       setShow(true);
     });
   }, []);
+
+  // delete color
+  function deleteColor(color) {
+    setColors(colors.filter((c) => c !== color));
+  }
 
   return (
     <>
@@ -76,8 +81,7 @@ export default function Home() {
                     key={c}
                     label={c}
                     color={c}
-                    colors={colors}
-                    setColors={setColors}
+                    handleClick={deleteColor}
                     canRemove={true}
                   />
                 ))}
