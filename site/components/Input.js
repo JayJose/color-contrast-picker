@@ -29,23 +29,27 @@ export default function MyInput({ setData, colors, setColors }) {
     setInputVal("");
   };
 
+  function handleChange(event) {
+    setInputVal(event.currentTarget.value.toUpperCase());
+  }
+
   return (
     <VStack>
       <HStack mt={2}>
-        <Input
-          size="sm"
-          type="text"
-          onChange={(event) =>
-            setInputVal(event.currentTarget.value.toUpperCase())
-          }
-          placeholder="Add a color "
-          value={inputVal}
-          bg={"white"}
-        />
+        <form onSubmit={addColor}>
+          <Input
+            size="sm"
+            type="text"
+            onChange={(event) => handleChange(event)}
+            placeholder="Add a color "
+            value={inputVal}
+            bg={"white"}
+          />
+        </form>
         <Button
           size="sm"
           alignSelf={"right"}
-          bg={"gray.500"}
+          bg={"blue.600"}
           type={"submit"}
           onClick={addColor}
           color="white"
