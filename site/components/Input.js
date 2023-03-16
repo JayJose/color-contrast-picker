@@ -9,8 +9,10 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
+// helper functions
 import postData from "../lib/postData";
 import { sortByRatio } from "../lib/sortData";
+import geRbgFromHex from "../lib/getRbgFromHex";
 
 export default function MyInput({ setData, colors, setColors }) {
   const url = `${process.env.NEXT_PUBLIC_API_URL}/api/v0/picks/combos`;
@@ -38,6 +40,8 @@ export default function MyInput({ setData, colors, setColors }) {
     }
     if (/^#[0-9A-F]{6}$/i.test(inputVal)) {
       setColors((oldColors) => [...oldColors, inputVal]);
+      /// get rgb from hex
+      console.log(geRbgFromHex(inputVal.substring(1)));
     } else {
       alert("Not a valid hex color");
     }
