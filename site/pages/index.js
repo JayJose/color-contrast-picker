@@ -10,6 +10,7 @@ import {
   HStack,
   Heading,
   SimpleGrid,
+  Stack,
   Text,
   VStack,
   Tooltip,
@@ -77,7 +78,7 @@ export default function Home() {
               </Heading>
             </HStack>
             <VStack>
-              <HStack justifyContent={"center"}>
+              <Stack direction={{ base: "column", md: "row" }}>
                 {colors.map((c, i) => (
                   <MyTag
                     key={c}
@@ -87,7 +88,7 @@ export default function Home() {
                     canRemove={true}
                   />
                 ))}
-              </HStack>
+              </Stack>
               <MyInput
                 setData={setData}
                 colors={colors}
