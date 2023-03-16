@@ -10,6 +10,7 @@ import {
   HStack,
   Heading,
   SimpleGrid,
+  Stack,
   Text,
   VStack,
   Tooltip,
@@ -27,6 +28,7 @@ import MyFooter from "../components/Footer";
 
 // helper functions
 import postData from "../lib/postData";
+import { sortByRatio } from "../lib/sortData";
 
 // sample palettes
 import palettes from "../data/palettes.json";
@@ -47,6 +49,7 @@ export default function Home() {
     ).then((data) => {
       setData(data);
       setShow(true);
+      sortByRatio(data.results.colorCombos);
     });
   }, []);
 
@@ -75,7 +78,7 @@ export default function Home() {
               </Heading>
             </HStack>
             <VStack>
-              <HStack justifyContent={"center"}>
+              <Stack direction={{ base: "column", md: "row" }}>
                 {colors.map((c, i) => (
                   <MyTag
                     key={c}
@@ -85,7 +88,7 @@ export default function Home() {
                     canRemove={true}
                   />
                 ))}
-              </HStack>
+              </Stack>
               <MyInput
                 setData={setData}
                 colors={colors}

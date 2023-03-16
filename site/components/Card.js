@@ -37,11 +37,15 @@ export default function MyCard({
   aaaResult,
   contrastRatio,
 }) {
+  // color toggling
   const [isReversed, setIsReversed] = useState(false);
   const fg = isReversed ? backgroundColor : foregroundColor;
   const bg = isReversed ? foregroundColor : backgroundColor;
 
+  // demo text
+  const fontSizes = ["2xl", "xl", "lg", "md", "sm", "xs"];
   const text = "The quick brown fox jumps over the lazy dog.";
+
   return (
     <Card minW="sm">
       <CardHeader>
@@ -54,12 +58,11 @@ export default function MyCard({
       </CardHeader>
       <CardBody color={fg} bg={bg}>
         <Stack mt={0} spacing={1}>
-          <Text fontSize="2xl">{text}</Text>
-          <Text fontSize="xl">{text}</Text>
-          <Text fontSize="lg">{text}</Text>
-          <Text fontSize="md">{text}</Text>
-          <Text fontSize="sm">{text}</Text>
-          <Text fontSize="xs">{text}</Text>
+          {fontSizes.map((f) => (
+            <Text key={f} fontSize={f}>
+              {text}
+            </Text>
+          ))}
         </Stack>
       </CardBody>
       <CardFooter color="white" alignItems={"center"}>
