@@ -1,5 +1,13 @@
 import { useEffect, useState } from "react";
-import { Button, HStack, Input, Switch, Text, VStack } from "@chakra-ui/react";
+import {
+  Button,
+  Flex,
+  HStack,
+  Input,
+  Switch,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 
 import postData from "../lib/postData";
 import { sortByRatio } from "../lib/sortData";
@@ -44,8 +52,13 @@ export default function MyInput({ setData, colors, setColors }) {
 
   return (
     <VStack>
-      <HStack mt={2}>
+      <HStack alignSelf={"start"} mt={2}>
+        <Text fontSize={"sm"}>
+          {showText ? "Show color picker" : "Show text input"}
+        </Text>
         <Switch onChange={() => setShowText(!showText)}></Switch>
+      </HStack>
+      <HStack mt={2}>
         <form onSubmit={addColor}>
           <Input
             size="sm"
@@ -60,7 +73,7 @@ export default function MyInput({ setData, colors, setColors }) {
         <Button
           size="sm"
           alignSelf={"right"}
-          bg={"blue.600"}
+          bg={"gray.500"}
           type={"submit"}
           onClick={addColor}
           color="white"
