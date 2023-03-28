@@ -29,6 +29,7 @@ import MyFooter from "../components/Footer";
 // helper functions
 import postData from "../lib/postData";
 import { sortByRatio } from "../lib/sortData";
+import { checkColorContrast } from "../lib/getCombos";
 
 // sample palettes
 import palettes from "../data/palettes.json";
@@ -57,6 +58,9 @@ export default function Home() {
   function deleteColor(color) {
     setColors(colors.filter((c) => c !== color));
   }
+
+  // new ish
+  console.log(checkColorContrast(colors));
 
   return (
     <>
