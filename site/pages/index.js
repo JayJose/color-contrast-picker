@@ -42,25 +42,16 @@ export default function Home() {
   const [show, setShow] = useState(false);
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    console.log("running useEffect");
-    postData(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/v0/picks/combos`,
-      colors
-    ).then((data) => {
-      setData(data);
-      setShow(true);
-      sortByRatio(data.results.colorCombos);
-    });
-  }, []);
+  checkColorContrast(colors).then((data) => {
+    setData(data);
+    sortByRatio(data);
+    setShow(true);
+  });
 
   // delete color
   function deleteColor(color) {
     setColors(colors.filter((c) => c !== color));
   }
-
-  // new ish
-  console.log(checkColorContrast(colors));
 
   return (
     <>
@@ -119,14 +110,14 @@ export default function Home() {
               spacingX="20px"
               spacingY="20px"
             >
-              {data.results.colorCombos.map((e, i) => (
+              {Array.from(data).map((e, i) => (
                 <MyCard
                   key={i}
-                  foregroundColor={e.colorOne}
-                  backgroundColor={e.colorTwo}
-                  aaResult={e.results.AA}
-                  aaaResult={e.results.AAA}
-                  contrastRatio={e.results.ratio}
+                  foregroundColor={e.colors[0]}
+                  backgroundColor={e.colors[1]}
+                  aaResult={e.data.AA}
+                  aaaResult={e.data.AAA}
+                  contrastRatio={e.data.ratio}
                 />
               ))}
             </SimpleGrid>
