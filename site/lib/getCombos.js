@@ -10,6 +10,7 @@ export function getCombinations(array) {
 }
 
 export async function checkColorContrast(hexCodes) {
+  console.log("executing checkColorContrast");
   const result = [];
   for (let i = 0; i < hexCodes.length - 1; i++) {
     for (let j = i + 1; j < hexCodes.length; j++) {

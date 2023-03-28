@@ -42,11 +42,13 @@ export default function Home() {
   const [show, setShow] = useState(false);
   const [data, setData] = useState([]);
 
-  checkColorContrast(colors).then((data) => {
-    setData(data);
-    sortByRatio(data);
-    setShow(true);
-  });
+  useEffect(() => {
+    checkColorContrast(colors).then((data) => {
+      setData(data);
+      sortByRatio(data);
+      setShow(true);
+    });
+  }, [colors]);
 
   // delete color
   function deleteColor(color) {
