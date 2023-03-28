@@ -29,6 +29,7 @@ import MyFooter from "../components/Footer";
 // helper functions
 import postData from "../lib/postData";
 import { sortByRatio } from "../lib/sortData";
+import { checkColorContrast } from "../lib/getCombos";
 
 // sample palettes
 import palettes from "../data/palettes.json";
@@ -42,16 +43,12 @@ export default function Home() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    console.log("running useEffect");
-    postData(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/v0/picks/combos`,
-      colors
-    ).then((data) => {
+    checkColorContrast(colors).then((data) => {
       setData(data);
+      sortByRatio(data);
       setShow(true);
-      sortByRatio(data.results.colorCombos);
     });
-  }, []);
+  }, [colors]);
 
   // delete color
   function deleteColor(color) {
@@ -115,14 +112,14 @@ export default function Home() {
               spacingX="20px"
               spacingY="20px"
             >
-              {data.results.colorCombos.map((e, i) => (
+              {Array.from(data).map((e, i) => (
                 <MyCard
                   key={i}
-                  foregroundColor={e.colorOne}
-                  backgroundColor={e.colorTwo}
-                  aaResult={e.results.AA}
-                  aaaResult={e.results.AAA}
-                  contrastRatio={e.results.ratio}
+                  foregroundColor={e.colors[0]}
+                  backgroundColor={e.colors[1]}
+                  aaResult={e.data.AA}
+                  aaaResult={e.data.AAA}
+                  contrastRatio={e.data.ratio}
                 />
               ))}
             </SimpleGrid>

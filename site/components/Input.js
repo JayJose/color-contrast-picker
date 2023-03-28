@@ -9,19 +9,12 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
-import postData from "../lib/postData";
+import { checkColorContrast } from "../lib/getCombos";
 import { sortByRatio } from "../lib/sortData";
 
 export default function MyInput({ setData, colors, setColors }) {
   const url = `${process.env.NEXT_PUBLIC_API_URL}/api/v0/picks/combos`;
   var [inputVal, setInputVal] = useState("");
-
-  useEffect(() => {
-    postData(url, colors).then((data) => {
-      setData(data);
-      sortByRatio(data.results.colorCombos);
-    });
-  }, [colors]);
 
   const addColor = async (event) => {
     event.preventDefault();
@@ -38,6 +31,10 @@ export default function MyInput({ setData, colors, setColors }) {
     }
     if (/^#[0-9A-F]{6}$/i.test(inputVal)) {
       setColors((oldColors) => [...oldColors, inputVal]);
+      checkColorContrast(colors).then((data) => {
+        setData(data);
+        sortByRatio(data);
+      });
     } else {
       alert("Not a valid hex color");
     }
