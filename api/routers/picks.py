@@ -32,7 +32,6 @@ def get_scores(color_one: str = "#000000", color_two: str = "#FFFFFF"):
 
 @router.post("/combos")
 def get_combos(colors: list[str]):
-
     if all([is_hex_color(color) for color in colors]):
         response = init_response(colors)
 
