@@ -92,7 +92,9 @@ export default function Home() {
                 colors={colors}
                 setColors={setColors}
               />
-              <MyFormUpload/>
+              <MyFormUpload
+                setColors={setColors}
+              />
             </VStack>
             <Divider pb={3}></Divider>
             <HStack justifyContent={"center"}>

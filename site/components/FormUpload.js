@@ -1,4 +1,4 @@
-export default function FormUpload() {
+export default function FormUpload({setColors }) {
     const onSubmit = async (event) => {
       event.preventDefault();
       
@@ -8,13 +8,10 @@ export default function FormUpload() {
       const response = await fetch('/api/upload', {
         method: 'POST',
         body: formData,
+      }).then(response => response.json())
+      .then(data => {
+        setColors(data.colors);
       });
-      
-      if (response.ok) {
-        console.log('Uploaded successfully!');
-      } else {
-        console.log('Upload failed');
-      }
     };
   
     return (

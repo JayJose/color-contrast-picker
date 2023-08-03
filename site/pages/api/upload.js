@@ -38,8 +38,8 @@ export default async (req, res) => {
     swatches[0].entries.map((swatch) => {
         colors.push(swatch.name)
     })
-
-      return res.status(200).json({ message: 'File uploaded and parsed successfully.' });
+    
+      return res.json({ colors: colors });
     });
   } else {
     // Handle any other HTTP method
