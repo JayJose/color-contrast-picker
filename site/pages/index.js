@@ -25,6 +25,7 @@ import MyHeader from "../components/Header";
 import MyTag from "../components/Tag";
 import MyInput from "../components/Input";
 import MyFooter from "../components/Footer";
+import MyFormUpload from "../components/FormUpload";
 
 // helper functions
 import postData from "../lib/postData";
@@ -91,6 +92,7 @@ export default function Home() {
                 colors={colors}
                 setColors={setColors}
               />
+              <MyFormUpload/>
             </VStack>
             <Divider pb={3}></Divider>
             <HStack justifyContent={"center"}>
