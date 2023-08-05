@@ -1,3 +1,9 @@
+import {
+  Button,
+  Input,
+  HStack,
+} from '@chakra-ui/react'
+
 export default function FormUpload({setColors }) {
     const onSubmit = async (event) => {
       event.preventDefault();
@@ -15,12 +21,18 @@ export default function FormUpload({setColors }) {
     };
   
     return (
-      <div>
+        <HStack alignSelf={"center"} mt={2}>
         <form onSubmit={onSubmit}>
           <input type="file" id="asefile" name="asefile" />
-          <button type="submit">Upload</button>
+          <Button
+            size="sm"
+            alignSelf={"right"}
+            bg={"blue.500"}
+            type={"submit"}
+            color="white">
+              Upload
+          </Button>
         </form>
-      </div>
+        </HStack>
     );
   }
-  

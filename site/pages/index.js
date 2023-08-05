@@ -76,7 +76,7 @@ export default function Home() {
               </Heading>
             </HStack>
             <VStack>
-              <Stack direction={{ base: "column", md: "row" }}>
+              <Stack direction={"column"}>
                 {colors.map((c, i) => (
                   <MyTag
                     key={c}
