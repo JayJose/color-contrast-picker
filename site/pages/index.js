@@ -7,9 +7,11 @@ import { Inter } from "next/font/google";
 import {
   Container,
   Divider,
+  Flex,
   HStack,
   Heading,
   SimpleGrid,
+  Spinner,
   Stack,
   Text,
   VStack,
@@ -42,6 +44,7 @@ export default function Home() {
   const [colors, setColors] = useState(palettes[paletteIx]);
   const [show, setShow] = useState(false);
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     checkColorContrast(colors).then((data) => {
@@ -97,6 +100,7 @@ export default function Home() {
               />
             </VStack>
             <Divider pb={3}></Divider>
+
             <HStack justifyContent={"center"}>
               <Heading pt={2} fontWeight={400} size="md" align={"center"}>
                 Accessibility Results
@@ -110,6 +114,11 @@ export default function Home() {
                 <InfoIcon boxSize={4} />
               </Tooltip>
             </HStack>
+            {isLoading ? (
+        <Flex justifyContent="center" alignItems="center">
+        <Spinner />
+      </Flex>
+      ) : 
             <SimpleGrid
               pt={2}
               columns={{ base: 1, md: 2 }}
@@ -127,6 +136,7 @@ export default function Home() {
                 />
               ))}
             </SimpleGrid>
+}
           </VStack>
           <Divider />
           <MyFooter />
