@@ -44,13 +44,15 @@ export default function Home() {
   const [colors, setColors] = useState(palettes[paletteIx]);
   const [show, setShow] = useState(false);
   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     checkColorContrast(colors).then((data) => {
       setData(data);
       sortByRatio(data);
       setShow(true);
+      setIsLoading(false)
     });
   }, [colors]);
 
@@ -100,7 +102,6 @@ export default function Home() {
               />
             </VStack>
             <Divider pb={3}></Divider>
-
             <HStack justifyContent={"center"}>
               <Heading pt={2} fontWeight={400} size="md" align={"center"}>
                 Accessibility Results
@@ -115,10 +116,10 @@ export default function Home() {
               </Tooltip>
             </HStack>
             {isLoading ? (
-        <Flex justifyContent="center" alignItems="center">
-        <Spinner />
-      </Flex>
-      ) : 
+            <Flex justifyContent="center" alignItems="center">
+              <Spinner />
+            </Flex>
+            ) : 
             <SimpleGrid
               pt={2}
               columns={{ base: 1, md: 2 }}

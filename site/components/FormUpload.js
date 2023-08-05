@@ -4,7 +4,7 @@ import {
   HStack,
 } from '@chakra-ui/react'
 
-export default function FormUpload({setColors }) {
+export default function FormUpload({setColors}) {
     const onSubmit = async (event) => {
       event.preventDefault();
       
