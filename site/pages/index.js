@@ -7,9 +7,11 @@ import { Inter } from "next/font/google";
 import {
   Container,
   Divider,
+  Flex,
   HStack,
   Heading,
   SimpleGrid,
+  Spinner,
   Stack,
   Text,
   VStack,
@@ -20,11 +22,13 @@ import {
 import { InfoIcon } from "@chakra-ui/icons";
 
 // custom components
+import MyAccordion from "../components/Accordion";
 import MyCard from "../components/Card";
 import MyHeader from "../components/Header";
 import MyTag from "../components/Tag";
 import MyInput from "../components/Input";
 import MyFooter from "../components/Footer";
+import MyFormUpload from "../components/FormUpload";
 
 // helper functions
 import postData from "../lib/postData";
@@ -41,12 +45,15 @@ export default function Home() {
   const [colors, setColors] = useState(palettes[paletteIx]);
   const [show, setShow] = useState(false);
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     checkColorContrast(colors).then((data) => {
       setData(data);
       sortByRatio(data);
       setShow(true);
+      setIsLoading(false);
     });
   }, [colors]);
 
@@ -75,7 +82,8 @@ export default function Home() {
               </Heading>
             </HStack>
             <VStack>
-              <Stack direction={{ base: "column", md: "row" }}>
+              {/* TAGS GO HERE */}
+              <SimpleGrid columns={3} spacing={3}>
                 {colors.map((c, i) => (
                   <MyTag
                     key={c}
@@ -85,11 +93,16 @@ export default function Home() {
                     canRemove={true}
                   />
                 ))}
-              </Stack>
-              <MyInput
-                setData={setData}
-                colors={colors}
-                setColors={setColors}
+              </SimpleGrid>
+              {/* INPUT GOES HERE */}
+              <Divider pb={3}></Divider>
+              <MyAccordion 
+                section1Content={<MyInput
+                  setData={setData}
+                  colors={colors}
+                  setColors={setColors}
+                />}
+                section2Content={<MyFormUpload setColors={setColors} />}
               />
             </VStack>
             <Divider pb={3}></Divider>
@@ -106,6 +119,11 @@ export default function Home() {
                 <InfoIcon boxSize={4} />
               </Tooltip>
             </HStack>
+            {isLoading ? (
+            <Flex justifyContent="center" alignItems="center">
+              <Spinner />
+            </Flex>
+            ) : 
             <SimpleGrid
               pt={2}
               columns={{ base: 1, md: 2 }}
@@ -123,6 +141,7 @@ export default function Home() {
                 />
               ))}
             </SimpleGrid>
+}
           </VStack>
           <Divider />
           <MyFooter />
