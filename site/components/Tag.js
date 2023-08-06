@@ -22,6 +22,7 @@ export default function MyTag({
       borderRadius={tag.br}
       variant={tag.variant}
       bg={tag.bg}
+      fontFamily="Menlo"
     >
       <TagLabel color={tag.labelColor}>{label}</TagLabel>
       <Box bg={color} ml={1} p={1.5} borderRadius="full" />

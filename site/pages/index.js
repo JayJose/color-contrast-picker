@@ -52,7 +52,7 @@ export default function Home() {
       setData(data);
       sortByRatio(data);
       setShow(true);
-      setIsLoading(false)
+      setIsLoading(false);
     });
   }, [colors]);
 
