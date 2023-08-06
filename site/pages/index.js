@@ -22,6 +22,7 @@ import {
 import { InfoIcon } from "@chakra-ui/icons";
 
 // custom components
+import MyAccordion from "../components/Accordion";
 import MyCard from "../components/Card";
 import MyHeader from "../components/Header";
 import MyTag from "../components/Tag";
@@ -81,7 +82,8 @@ export default function Home() {
               </Heading>
             </HStack>
             <VStack>
-              <Stack direction={"column"}>
+              {/* TAGS GO HERE */}
+              <SimpleGrid columns={3} spacing={3}>
                 {colors.map((c, i) => (
                   <MyTag
                     key={c}
@@ -91,14 +93,16 @@ export default function Home() {
                     canRemove={true}
                   />
                 ))}
-              </Stack>
-              <MyInput
-                setData={setData}
-                colors={colors}
-                setColors={setColors}
-              />
-              <MyFormUpload
-                setColors={setColors}
+              </SimpleGrid>
+              {/* INPUT GOES HERE */}
+              <Divider pb={3}></Divider>
+              <MyAccordion 
+                section1Content={<MyInput
+                  setData={setData}
+                  colors={colors}
+                  setColors={setColors}
+                />}
+                section2Content={<MyFormUpload setColors={setColors} />}
               />
             </VStack>
             <Divider pb={3}></Divider>
