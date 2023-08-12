@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import {
   HStack,
@@ -12,33 +12,26 @@ import {
   IconButton,
   Link,
   Text,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react'
 
-import { HamburgerIcon, ExternalLinkIcon } from "@chakra-ui/icons";
+import { HamburgerIcon, ExternalLinkIcon } from '@chakra-ui/icons'
 
 export default function MyHeader() {
-  const headerConfig = { primaryColor: "black", secColor: "white" };
+  const headerConfig = { primaryColor: 'black', secColor: 'white' }
   return (
     <>
       <Flex
-        width={"100%"}
+        width={'100%'}
         top="0"
-        justifyContent={"space-between"}
         position="sticky"
         zIndex={1}
         p={2}
         background={headerConfig.secColor}
-        borderBottom={"2px solid black"}
+        borderBottom={'2px solid black'}
+        alignItems="center"
+        textAlign="center"
       >
-        <Box p="0">
-          <Heading size="lg" fontWeight={300} color={headerConfig.primaryColor}>
-            Color Contrast Assessment
-          </Heading>
-          <Text fontSize="sm" color={headerConfig.primaryColor}>
-            Is your color palette accessible?
-          </Text>
-        </Box>
-        <HStack spacing={2}>
+        <Flex justifyContent="flex-start">
           <Menu>
             {({ isOpen }) => (
               <>
@@ -46,15 +39,19 @@ export default function MyHeader() {
                   as={IconButton}
                   aria-label="Options"
                   icon={
-                    <HamburgerIcon w={6} h={6} color={headerConfig.secColor} />
+                    <HamburgerIcon
+                      w={6}
+                      h={6}
+                      color={headerConfig.primaryColor}
+                    />
                   }
-                  background={headerConfig.primaryColor}
+                  background={headerConfig.secColor}
                   maxH={7}
                 >
-                  {isOpen ? "Close" : "Open"}
+                  {isOpen ? 'Close' : 'Open'}
                 </MenuButton>
                 <MenuList
-                  fontSize={"14px"}
+                  fontSize={'14px'}
                   fontWeight={200}
                   background={headerConfig.secColor}
                   textColor={headerConfig.primaryColor}
@@ -78,8 +75,16 @@ export default function MyHeader() {
               </>
             )}
           </Menu>
-        </HStack>
+        </Flex>
+        <Flex flex="1" justifyContent="center" direction="column">
+          <Heading size="lg" fontWeight={300} color={headerConfig.primaryColor}>
+            HueView
+          </Heading>
+          <Text fontSize="lg" color={headerConfig.primaryColor}>
+            Design 🤝 Accessibility
+          </Text>
+        </Flex>
       </Flex>
     </>
-  );
+  )
 }
